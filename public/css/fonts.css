@@ -1,0 +1,31 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto-Regular.eot');
+    src: local('☺'), url('../fonts/Roboto-Regular.woff') format('woff'), url('../fonts/Roboto-Regular.ttf') format('truetype'), url('../fonts/Roboto-Regular.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto Bold';
+    src: url('../fonts/Roboto-Bold.eot');
+    src: local('☺'), url('../fonts/Roboto-Bold.woff') format('woff'), url('../fonts/Roboto-Bold.ttf') format('truetype'), url('../fonts/Roboto-Bold.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Supermolot';
+    src: url('../fonts/Jovanny Lemonad - Supermolot.eot');
+    src: local('☺'), url('../fonts/Jovanny Lemonad - Supermolot.woff') format('woff'), url('../fonts/Jovanny Lemonad - Supermolot.ttf') format('truetype'), url('../fonts/Jovanny Lemonad - Supermolot.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Supermolot Black';
+    src: url('../fonts/Jovanny Lemonad - Supermolot Black.eot');
+    src: local('☺'), url('../fonts/Jovanny Lemonad - Supermolot Black.woff') format('woff'), url('../fonts/Jovanny Lemonad - Supermolot Black.ttf') format('truetype'), url('../fonts/Jovanny Lemonad - Supermolot Black.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
