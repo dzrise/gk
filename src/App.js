@@ -4,8 +4,6 @@ import Routes from './Routes';
 import './App.css';
 
 //components
-
-import Header from "./components/Header";
 import Footer from "./components/Footer";
 
 //aps
@@ -15,7 +13,6 @@ export default class App extends Component {
     return (
         <Router>
           <div className="app">
-            <Header/>
             <main>
               <Routes/>
             </main>
