@@ -34,13 +34,14 @@
     justify-content: space-between;
     align-items: center;
 }
-.row_right .col {
-    flex-basis: 0;
-    -ms-flex-positive: 1;
-    flex-grow: 1;
-    max-width: 100%;
+.footer__video {
+    width: 32%;
 }
-.footer_site {
+.footer__report {
+    width: 40%;
+}
+.footer__site {
+    width: 28%;
     font-family: 'Supermolot';
     color: #999999;
     font-size: 15px;

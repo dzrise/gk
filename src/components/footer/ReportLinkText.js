@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
 
-export default class ClipLinkText extends Component {
+export default class ReportLinkText extends Component {
     render() {
-        let styleClipLinkText = {
+        let styleReportLinkText = {
             fontFamily: 'Roboto',
             fontSize: '13px',
             color: '#e6e6e6',
-            marginTop: '-10px',
+            marginTop: '-12px',
             marginLeft: '-10px',
         }
         return (
            <>
-               <span className='clip-link__text' style={styleClipLinkText}>
-                   Презентационный ролик о компании
-               </span>
+               <div className='report-link__text' style={styleReportLinkText}>
+                  <div className='new-line'>Интерактивынй</div>
+                   <div className='new-line'>годовой отчет за 2019 год</div>
+               </div>
            </>
         );
      }

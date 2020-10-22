@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 
-export default class ClipLinkIcon extends Component {
+export default class ReportLinkIcon extends Component {
     render() {
-        let styleClipLinkIcon = {
+        let styleReportLinkIcon = {
             marginLeft: '20px',
         }
         return (
-            <img src='/img/icon-video-inactive.png' className='clip-link__icon' style={styleClipLinkIcon} />
+            <img src='/img/icon-report-inactive.png' className='report-link__icon' style={styleReportLinkIcon} />
         );
     }
 }
