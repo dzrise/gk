@@ -27,7 +27,9 @@
 .link-five  .home-menu__link__inner {
     padding: 50px 50px 0 50px;
 }
-.link-two  .home-menu__link__inner,
+.link-two  .home-menu__link__inner {
+    padding: 25px 30px 0 50px;
+}
 .link-four  .home-menu__link__inner{
     padding: 30px 30px 0 40px;
 }
