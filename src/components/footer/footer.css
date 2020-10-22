@@ -27,3 +27,16 @@
 .row_left span {
     font-family: 'Supermolot Black';
 }
+
+.row_right .col {
+    width: 33.33333%;
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.footer_site {
+    font-family: 'Supermolot';
+    color: #999999;
+    font-size: 15px;
+}
