@@ -4,12 +4,22 @@
   overflow: hidden;
 }
 .header {
-  height: 17vh;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 2;
+}
+.header__inner {
   padding: 30px 50px 0 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 main {
-  height: 83vh;
+  height: 85.5vh;
+  background: #414142;
+  z-index: 1;
 }
 .footer {
-  height: 17vh;
+  height: 14.5vh;
 }
