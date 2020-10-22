@@ -1,0 +1,36 @@
+.link-one {
+    background: url("/img/link-one.png");
+    color: #ffffff;
+}
+.link-two {
+    background: url("/img/link-two.png");
+    color: #cfd1d2;
+}
+.link-three {
+    background: url("/img/link-three.png");
+    color: #ffffff;
+}
+.link-four {
+    background: url("/img/link-four.png");
+    color: #cfd1d2;
+}
+.link-five {
+    background: url("/img/link-five.png");
+    color: #ffffff;
+}
+.link-six {
+    background: url("/img/link-six.png");
+    color: #cfd1d2;
+}
+.link-one  .home-menu__link__inner,
+.link-three  .home-menu__link__inner,
+.link-five  .home-menu__link__inner {
+    padding: 50px 50px 0 50px;
+}
+.link-two  .home-menu__link__inner,
+.link-four  .home-menu__link__inner{
+    padding: 30px 30px 0 40px;
+}
+.link-six  .home-menu__link__inner {
+    padding: 30px 50px 0 50px;
+}
