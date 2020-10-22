@@ -13,16 +13,14 @@ export default class Footer extends Component {
                         <Copyright/>
                     </div>
                     <div className="row_right">
-                        <div className="footer_row">
-                            <div className="col">
+                        <div className="col">
 
-                            </div>
-                            <div className="col">
+                        </div>
+                        <div className="col">
 
-                            </div>
-                            <div className="col footer_site">
+                        </div>
+                        <div className="col footer_site">
                                 www.gtlk.ru
-                            </div>
                         </div>
                     </div>
                 </div>
