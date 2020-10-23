@@ -1,3 +1,4 @@
+@import '../node_modules/react-modal-video/css/modal-video.min.css';
 .app {
   background: #4d4e4f;
   height: 100vh;
@@ -25,4 +26,16 @@ main {
 }
 .new-line {
   width: 100%;
+}
+.video-react-controls-enabled {
+  padding: 0 !important;
+}
+.video-react-big-play-button {
+  display: none !important;
+}
+.video-react-control-bar {
+  display: none !important;
+}
+.video-react-video {
+  max-width: 100%;
 }
