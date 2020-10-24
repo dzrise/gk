@@ -38,3 +38,22 @@ main {
 .video-react-video {
   max-width: 100%;
 }
+.item-project {
+  padding-top: 150px;
+  padding-left: 100px;
+}
+.item-project__card {
+  width: 251px;
+  height: 241px;
+  background: url("/img/fon-item-project-inactive.png") no-repeat;
+  padding: 30px;
+}
+.item-project__card.active {
+  background: url("/img/fon-item-project-active.png") no-repeat;
+}
+button.react-multiple-carousel__arrow {
+  display: none!important;
+}
+.react-multi-carousel-dot-list {
+  display: none!important;
+}

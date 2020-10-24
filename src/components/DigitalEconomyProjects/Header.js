@@ -7,7 +7,6 @@ import TitleDigital from "./header/TitilDigital";
 export default class Header extends Component {
     render() {
         let styleLeft = {
-            width: '50%',
             marginTop: 16,
         }
         let styleRight = {

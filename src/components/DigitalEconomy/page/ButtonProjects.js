@@ -1,22 +1,36 @@
 import React, { Component } from 'react';
-export default class ButtonProjects extends Component {
+import {Route, withRouter} from 'react-router-dom';
+
+class ButtonProjects extends Component {
+    constructor(props) {
+        super(props)
+
+        this.url = '/digital-economy/projects'
+        this.goLink = this.goLink.bind(this)
+    }
+
+    goLink() {
+        this.props.history.push(this.url)
+    }
     render() {
         let styleButtonProjects = {
             position:'absolute',
             right: 50,
-            bottom: 50,
-            width: 142,
-            height: 77,
-            backgroundImage: 'url(/img/button.png)',
+            bottom: '-30px',
+            border: 'none',
+            background: 'url(/img/bg-button.png)',
             backgroundRepeat: 'no-repeat',
             fontFamily: 'Roboto',
             fontSize: 12,
-            color: '#ffffff'
+            color: '#ffffff',
+            padding: '25px 40px 35px 40px',
+            cursor: 'pointer',
         }
         return (
-            <Button style={styleButtonProjects}>
+            <button style={styleButtonProjects} onClick={this.goLink}>
                 Проекты
-            </Button>
+            </button>
         );
     }
 }
+export default withRouter(ButtonProjects)

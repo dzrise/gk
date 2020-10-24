@@ -23,7 +23,7 @@ export default class TitleDigital extends Component {
                     Цифровая экономика
                 </div>
                 <div className='title-bottom' style={styleTitleBottom}>
-                    Лизинг цифровых активов
+                    Проекты в рамках Цифровой трансформации экономики России
                 </div>
             </div>
         );
