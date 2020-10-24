@@ -10,20 +10,20 @@ export default class TitleDigital extends Component {
         let styleTitleTop = {
             fontFamily: 'Roboto',
             fontSize:30,
-            color: '#ffffff',
+            color: '#4d4d4f',
         }
         let styleTitleBottom = {
             fontFamily: 'Roboto Bold',
             fontSize:30,
-            color: '#ffffff',
+            color: '#4d4d4f',
         }
         return (
             <div className='header__title' style={styleTitle}>
                 <div className='title-top' style={styleTitleTop}>
-                    Цифровая экономика
+                    Безопасность и качество автомобильных дорог
                 </div>
                 <div className='title-bottom' style={styleTitleBottom}>
-                    Проекты в рамках Цифровой трансформации экономики России
+                    Тайминг проекта 2020—2024
                 </div>
             </div>
         );

@@ -8,16 +8,28 @@ export default class ItemProject extends Component {
             className += ' active';
         }
         let styleItemProject = {
-            backgroundImage: this.props.backgroundImage,
+            backgroundImage: 'url('+this.props.backgroundImage+')',
+            backgroundRepeat: 'no-repeat',
+        }
+        let styleSubTitle = {
+            fontFamily: 'Roboto',
+            fontSize: 10,
+            color: '#b3b3b3',
+            marginBottom: 150,
+        }
+        let styleTitle = {
+            fontFamily: 'Roboto',
+            fontSize: 20,
+            color: '#ffffff',
         }
         return (
             <div className='item-project' style={styleItemProject}>
                 <div className={className}>
-                    <div>
+                    <div style={styleSubTitle}>
                         <div className='new-line'>национальный</div>
                         <div className='new-line'>проект</div>
                     </div>
-                    <div className='item-project__title'>
+                    <div className='item-project__title' style={styleTitle}>
                         {this.props.title}
                     </div>
                 </div>

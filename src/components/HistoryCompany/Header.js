@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Logo from "./header/Logo";
-import LogoDigitalEconomic from "./header/LogoDigitalEconomic";
+import LogoHistoryCompany from "./header/LogoHistoryCompany";
 import GoBack from "./header/GoBack";
 import TitleDigital from "./header/TitilDigital";
 
@@ -22,7 +22,7 @@ export default class Header extends Component {
                         <TitleDigital/>
                     </div>
                     <div style={styleRight}>
-                        <LogoDigitalEconomic/>
+                        <LogoHistoryCompany/>
                         <GoBack/>
                     </div>
                 </div>

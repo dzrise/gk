@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import logo from '../../../assets/img/logo-digital-economic.png'
+import logo from '../../../assets/img/logo-national-projects.png'
 
-export default class LogoDigitalEconomic extends Component {
+export default class LogoHistoryCompany extends Component {
     render() {
         let styleSlogan = {
             fontFamily: 'Supermolot',
