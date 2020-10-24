@@ -3,7 +3,6 @@ import ClipLinkIcon from "./ClipLinkIcon";
 import ClipLinkText from "./ClipLinkText";
 import ModalVideo from "./ModalVideo";
 
-
 export default class ClipLink extends Component {
     constructor () {
         super()
