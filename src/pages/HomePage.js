@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Header from "../components/HomePage/Header";
 import HomeMenu from "../components/HomePage/homeMenu";
 
+
 export default class HomePage extends Component {
 
     render() {
