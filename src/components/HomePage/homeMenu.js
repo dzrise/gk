@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import HomeMenuLink from "./HomeMenuLink";
 
-import '../assets/css/menu.css'
+import '../../assets/css/menu.css'
 export default class HomeMenu extends Component {
 
     render() {

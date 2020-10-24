@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import Logo from "./header/Logo";
-import LogoNationalProjects from "./header/LogoNationalProjects";
+import LogoDigitalEconomic from "./header/LogoDigitalEconomic";
 import GoBack from "./header/GoBack";
+import TitleDigital from "./header/TitilDigital";
 
 export default class Header extends Component {
-
     render() {
+        let styleLeft = {
+            marginTop: 16,
+        }
         let styleRight = {
             display: 'flex',
             justifyContent: 'flex-end',
@@ -14,9 +17,12 @@ export default class Header extends Component {
         return (
             <header className="header">
                 <div className='header__inner'>
-                    <Logo/>
+                    <div style={styleLeft}>
+                        <Logo/>
+                        <TitleDigital/>
+                    </div>
                     <div style={styleRight}>
-                        <LogoNationalProjects/>
+                        <LogoDigitalEconomic/>
                         <GoBack/>
                     </div>
                 </div>

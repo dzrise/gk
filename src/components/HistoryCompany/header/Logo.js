@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from  '../../../assets/img/logo-min.png'
+import logo from  '../../../assets/img/logo-digital.png'
 export default class Logo extends Component {
     render() {
         let styleLogo = {
