@@ -1,0 +1,76 @@
+.accordian {
+    display: flex;
+}
+
+.accordian>div.slide {
+    position: relative;
+    overflow: hidden;
+    width: 15%;
+    height:  70vh;
+    cursor: pointer;
+    box-sizing: border-box;
+    box-shadow: 0 5px 10px black;
+    background-color: #ffffff;
+}
+.accordian>div.slide.active {
+    width: 55%;
+}
+.accordian .title {
+    position:relative;
+    display: block;
+    width: 300px;
+    left: -250px;
+    top: 50px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: 'Roboto';
+    font-size: 15px;
+    color: #4d4d4f;
+    -webkit-transform: translate(100%, 0) rotate(90deg);
+    -webkit-transform-origin: 0 0;
+    transform: translate(100%, 0) rotate(90deg);
+    transform-origin: 0 0;
+}
+
+.texto {
+    color: white;
+    display: none;
+    text-align: left;
+    padding: 40px;
+}
+.active .title {
+    display: none;
+}
+.active .texto{
+    display: block;
+}
+.active .arrow,
+.slide-one .arrow{
+    display: none;
+}
+.slide-one  {
+    background: url("/img/bkad/slide-one-fon.png") no-repeat;
+    background-size: cover;
+}
+.slide-two  {
+    background: url("/img/bkad/slide2fon.png") no-repeat;
+    background-position: 50% 95%;
+}
+.slide-two.active {
+    background-position: 95% 95%;
+}
+.slide-three  {
+    background: url("/img/bkad/slide3fon.png") no-repeat;
+    background-position: 50% 95%;
+}
+.slide-three.active {
+    background-position: 95% 95%;
+}
+.slide-four  {
+    background: url("/img/bkad/slide4fon.png") no-repeat;
+    background-position: 50% 95%;
+}
+.slide-four.active {
+    background-position: 95% 95%;
+}

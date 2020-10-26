@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import Header from "../components/HomePage/Header";
-import HomeMenu from "../components/HomePage/homeMenu";
+import Header from "../components/BkadTaiming/Header";
 
-export default class HomePage extends Component {
+export default class BkadTaimingPage extends Component {
 
     render() {
         let pageStyle = {
@@ -14,13 +13,9 @@ export default class HomePage extends Component {
             backgroundSize: '100% 100%',
         }
         return (
-            <>
+            <div style={pageStyle}>
                 <Header/>
-                <div className="home" style={pageStyle}>
-                    <HomeMenu/>
-                </div>
-            </>
+            </div>
         );
     }
 }
-

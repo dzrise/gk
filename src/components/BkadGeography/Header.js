@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import Logo from "./header/Logo";
-import LogoHistoryCompany from "./header/LogoHistoryCompany";
+import LogoProject from "./header/LogoProject";
 import GoBack from "./header/GoBack";
-import TitleDigital from "./header/TitilDigital";
+import TitleDigital from "./header/Titil";
 
 export default class Header extends Component {
     render() {
-        let styleInner ={
-            padding: '30px 50px 0 100px',
+        let styleInner = {
+            padding: '30xp 50px 0 100px',
         }
         let styleLeft = {
             marginTop: 16,
@@ -25,7 +25,7 @@ export default class Header extends Component {
                         <TitleDigital/>
                     </div>
                     <div style={styleRight}>
-                        <LogoHistoryCompany/>
+                        <LogoProject/>
                         <GoBack/>
                     </div>
                 </div>
