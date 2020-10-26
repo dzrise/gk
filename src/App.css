@@ -57,3 +57,20 @@ button.react-multiple-carousel__arrow {
 .react-multi-carousel-dot-list {
   display: none !important;
 }
+.mCSB_buttonUp {
+  background-image: url("/img/arrow-up.png") !important;
+  background-position: center center !important;
+}
+.mCSB_buttonDown {
+  background-image: url("/img/arrow-down.png")!important;
+  background-position: center center !important;
+}
+.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+  background: #4d4e4f !important;
+}
+.mCSB_scrollTools .mCSB_draggerRail {
+  background: #cccccc !important;
+}
+.map svg .active {
+  fill: #189255 !important;
+}

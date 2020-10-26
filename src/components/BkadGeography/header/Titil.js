@@ -23,7 +23,7 @@ export default class TitleDigital extends Component {
                     Безопасность и качество автомобильных дорог
                 </div>
                 <div className='title-bottom' style={styleTitleBottom}>
-                    Тайминг проекта 2020—2024
+                    География проекта
                 </div>
             </div>
         );
