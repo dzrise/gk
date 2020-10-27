@@ -74,3 +74,6 @@ button.react-multiple-carousel__arrow {
 .map svg .active {
   fill: #189255 !important;
 }
+.swiper-slide {
+  min-width: 430px;
+}

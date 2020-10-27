@@ -7,13 +7,25 @@ export default class ClipLink extends Component {
     constructor () {
         super()
         this.state = {
-            isOpen: false
+            isOpen: false,
+            icon: '/img/icon-video-inactive.png',
         }
         this.openModal = this.openModal.bind(this)
+        this.closeModal = this.closeModal.bind(this)
     }
 
     openModal () {
-        this.setState({isOpen: true})
+        this.setState({icon: '/img/icon-video-active.png'})
+        setTimeout(() => {
+                this.setState({isOpen: true})
+            },
+            1000
+        )
+
+    }
+    closeModal(){
+        this.setState({icon: '/img/icon-video-inactive.png'})
+        this.setState({isOpen: false})
     }
     render() {
         let styleClipLink = {
@@ -23,9 +35,9 @@ export default class ClipLink extends Component {
         }
         return (
             <React.Fragment>
-                <ModalVideo  isOpen={this.state.isOpen} url='/video.mp4' onClose={() => this.setState({isOpen: false})} />
+                <ModalVideo  isOpen={this.state.isOpen} url='/video.mp4' onClose={() => {this.closeModal()}} />
                 <div className='clip-link' style={styleClipLink} onClick={this.openModal}>
-                    <ClipLinkIcon />
+                    <ClipLinkIcon icon={this.state.icon}/>
                     <ClipLinkText />
                 </div>
             </React.Fragment>

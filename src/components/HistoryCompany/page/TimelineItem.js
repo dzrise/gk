@@ -1,14 +1,24 @@
 import React, { Component } from 'react';
-export default class TimelineItem extends Component {
+import PropTypes from 'prop-types';
+
+class TimelineItem extends Component {
     constructor() {
         super();
-        this.state = {isActive: false};
+        this.state = {
+            isActive: false,
+            hidden : true
+        };
 
         this.handleClick = this.handleClick.bind(this);
     }
 
     handleClick() {
         this.setState(state => ({      isActive: !state.isActive    }));
+    }
+    componentDidMount() {
+        setTimeout(() => {
+            this.setState({hidden: false});
+        }, this.props.waitBeforeShow);
     }
 
     render() {
@@ -44,7 +54,7 @@ export default class TimelineItem extends Component {
             backgroundRepeat: 'no-repeat',
             zIndex: 1,
         }
-        return (
+        return this.state.hidden ? '':
             <div style={styleTimelineItem}>
                 <div style={styleTimelineItemInner} onClick={this.handleClick}>
                     <div style={styleItemText}>
@@ -56,7 +66,12 @@ export default class TimelineItem extends Component {
                     <img src={this.props.img} alt="" style={styleImg}/>
                 </div>
             </div>
-        );
+
     }
 
 }
+TimelineItem.propTypes = {
+    waitBeforeShow: PropTypes.number.isRequired
+};
+
+export default TimelineItem;
