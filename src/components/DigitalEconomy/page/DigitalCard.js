@@ -4,8 +4,8 @@ export default class DigitalCard extends Component {
         let styleDigitalCard = {
             position: 'absolute',
             left: this.props.left,
-            width: '524px',
-            height: '524px',
+            width: '424px',
+            height: '424px',
             backgroundImage: 'url(/img/bg-digital-card.png)',
             backgroundRepeat: 'no-repeat',
             zIndex: this.props.zIndex,

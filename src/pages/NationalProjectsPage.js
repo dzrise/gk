@@ -76,9 +76,6 @@ class NationalProjectsPage extends Component {
                             <Swiper
                                 spaceBetween={50}
                                 slidesPerView={3}
-                                navigation
-                                pagination={{ clickable: false }}
-                                scrollbar={{ draggable: false }}
                                 centeredSlides={true}
                                 grabCursor={true}
                                 loop={this.state.loop}
