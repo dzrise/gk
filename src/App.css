@@ -84,3 +84,6 @@ button.react-multiple-carousel__arrow {
 .swiper-pagination-bullet-active {
   background: white;
 }
+.tools .active {
+  background: #fff;
+}

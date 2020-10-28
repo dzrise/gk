@@ -12,6 +12,10 @@ import Rout from "../components/DigitalEconomy/page/Rout";
 import ButtonProjects from "../components/DigitalEconomy/page/ButtonProjects";
 
 export default class DigitalEconomyPage extends Component {
+    constructor() {
+        super();
+        this.state = { active: 1, zIndexOne: 3, zIndexTwo: 2, zIndexThree: 1,}
+    }
 
     render() {
         let pageStyle = {
@@ -48,31 +52,31 @@ export default class DigitalEconomyPage extends Component {
                     <Header/>
                     <div className='digital-economy__inner' style={styleInner}>
                         <div style={styleCol}>
-                            <DigitalCard left='0px' zIndex='1'>
-                                <CardOne/>
+                            <DigitalCard left='0px' zIndex={this.state.zIndexOne}>
+                                <CardOne  display={this.state.active === 1 ? 'block' : 'none'}/>
                             </DigitalCard>
-                            <DigitalCard left='70px' zIndex='2'>
-                                <CardTwo/>
+                            <DigitalCard left='70px' zIndex={this.state.zIndexTwo}>
+                                <CardTwo  display={this.state.active === 2 ? 'block' : 'none'}/>
                             </DigitalCard>
-                            <DigitalCard left='140px' zIndex='3'>
-                                <CardThree/>
+                            <DigitalCard left='140px' zIndex={this.state.zIndexThree}>
+                                <CardThree  display={this.state.active === 3 ? 'block' : 'none'}/>
                             </DigitalCard>
                         </div>
                         <div style={styleCol}>
-                            <RightCard display='none'>
+                            <RightCard display={this.state.active === 1 ? 'block' : 'none'}>
                                 <RightCardOne/>
                             </RightCard>
-                            <RightCard display='none'>
+                            <RightCard display={this.state.active === 2 ? 'block' : 'none'}>
                                 <RightCardTwo/>
                             </RightCard>
-                            <RightCard display='block'>
+                            <RightCard display={this.state.active === 3 ? 'block' : 'none'}>
                                 <RightCardThree/>
                             </RightCard>
                             <div style={styleRoutWrapper}>
-                                <div  style={styleRout}>
-                                    <Rout />
-                                    <Rout />
-                                    <Rout back='#ffffff'/>
+                                <div className='tools' style={styleRout}>
+                                    <Rout className={this.state.active === 1 ? 'active': ''} onClick={()=>{this.setState({active: 1, zIndexOne: 3, zIndexTwo: 2, zIndexThree: 1})}}/>
+                                    <Rout className={this.state.active === 2 ? 'active': ''} onClick={()=>{this.setState({active: 2, zIndexOne: 1, zIndexTwo: 3, zIndexThree: 2})}}/>
+                                    <Rout className={this.state.active === 3 ? 'active': ''} onClick={()=>{this.setState({active: 3, zIndexOne: 1, zIndexTwo: 2, zIndexThree: 3})}}/>
                                 </div>
                             </div>
                             <ButtonProjects/>

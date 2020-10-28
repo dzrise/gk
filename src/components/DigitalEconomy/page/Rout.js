@@ -7,10 +7,9 @@ export default class Rout extends Component {
             height: 10,
             border: '1px solid #ffffff',
             borderRadius: '100%',
-            background: back
         }
         return (
-            <div style={styleRout}>
+            <div style={styleRout} className={this.props.className} onClick={this.props.onClick}>
 
             </div>
         );

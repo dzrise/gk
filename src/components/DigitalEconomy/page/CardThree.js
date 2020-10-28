@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 export default class CardThree extends Component {
     render() {
+        let styleCard = {
+            paddingRight: 50,
+            display: this.props.display
+        }
         let styleInt = {
             fontFamily: 'Supermolot Black',
             fontSize: 150,
@@ -14,7 +18,7 @@ export default class CardThree extends Component {
             lineHeight: 1.5,
         }
         return (
-            <div>
+            <div style={styleCard}>
                 <div style={styleInt}>>10</div>
                 <div style={styleText}>
                     <div className='new-line'>По внедрению «сквозных»</div>
