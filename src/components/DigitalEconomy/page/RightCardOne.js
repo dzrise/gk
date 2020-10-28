@@ -7,7 +7,10 @@ export default class RightCardOne extends Component {
         }
         return (
             <div>
-
+                <div className='new-line'>ГТЛК ОДНОЙ ИЗ ПЕРВЫХ КОМПАНИЙ</div>
+                <div className='new-line'>ВЫДЕЛИЛА ЦИФРОВЫЕ АКТИВЫ</div>
+                <div className='new-line'>В ОТДЕЛЬНОЕ НАПРАВЛЕНИЕ</div>
+                <div className='new-line'>РАЗВИТИЯ</div>
             </div>
         );
     }
