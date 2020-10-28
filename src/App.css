@@ -73,4 +73,17 @@ button.react-multiple-carousel__arrow {
 }
 .map svg .active {
   fill: #189255 !important;
+  fill-opacity: 1 !important;
+}
+.swiper-slide {
+  min-width: 430px;
+}
+.swiper-button-prev, .swiper-button-next {
+  color: white;
+}
+.swiper-pagination-bullet-active {
+  background: white;
+}
+.tools .active {
+  background: #fff;
 }

@@ -6,7 +6,7 @@ export default class ClipLinkIcon extends Component {
             marginLeft: '20px',
         }
         return (
-            <img src='/img/icon-video-inactive.png' className='clip-link__icon' style={styleClipLinkIcon} />
+            <img src={this.props.icon} className='clip-link__icon' style={styleClipLinkIcon} />
         );
     }
 }

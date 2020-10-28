@@ -1,12 +1,53 @@
 import React, { Component } from 'react';
-import Carousel from 'react-multi-carousel';
-import 'react-multi-carousel/lib/styles.css';
+import {withRouter} from 'react-router-dom'
+import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/swiper.scss';
 import Header from "../components/NationalProjectsPage/Header";
 import Card from "../components/NationalProjectsPage/Card";
 import ItemProject from "../components/NationalProjectsPage/ItemProject";
 
-export default class NationalProjectsPage extends Component {
+SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 
+class NationalProjectsPage extends Component {
+    constructor() {
+        super();
+        this.state = {
+            loop: false,
+            showCard: true,
+            active: '',
+        }
+
+        this.setLoop = this.setLoop.bind(this)
+        this.setActive = this.setActive.bind(this)
+    }
+    setLoop(){
+        if(this.state.loop === false) {
+            this.setState({loop: true})
+        }
+        if(this.state.showCard === true){
+            this.setState({showCard: false})
+        }
+    }
+    setActive(id){
+        this.setState({active: id})
+        switch (id) {
+            case 0:
+                setTimeout(() => {
+                        this.props.history.push('/bkad')
+                    },
+                    1000
+                )
+                break;
+            case 1:
+                setTimeout(() => {
+                        this.props.history.push('/digital-economy')
+                    },
+                    1000
+                )
+                break;
+        }
+    }
     render() {
         let pageStyle = {
             position: 'relative',
@@ -22,56 +63,35 @@ export default class NationalProjectsPage extends Component {
         let styleCarousel = {
             position: 'absolute',
             top: 130,
-            left: '48%',
+            left: '3.66%',
             width: '100%',
-            height: '100%'
         }
-        const responsive = {
-            desktop: {
-                breakpoint: { max: 3000, min: 1024 },
-                items: 3,
-                slidesToSlide: 3 // optional, default to 1.
-            },
-            tablet: {
-                breakpoint: { max: 1024, min: 464 },
-                items: 2,
-                slidesToSlide: 2 // optional, default to 1.
-            },
-            mobile: {
-                breakpoint: { max: 464, min: 0 },
-                items: 1,
-                slidesToSlide: 1 // optional, default to 1.
-            }
-        };
         return (
             <>
                 <div className="national-projects" style={pageStyle}>
                     <Header/>
                     <div className='national-projects__inner' style={styleInner}>
-                        <Card />
+                        <Card showCard={this.state.showCard}/>
                         <div style={styleCarousel}>
-                            <Carousel
-                                swipeable={false}
-                                draggable={false}
-                                showDots={true}
-                                responsive={responsive}
-                                ssr={true}
-                                infinite={true}
-                                autoPlay={this.props.deviceType !== "mobile" ? true : false}
-                                autoPlaySpeed={1000}
-                                keyBoardControl={true}
-                                customTransition="all .5"
-                                transitionDuration={500}
-                                containerClass="carousel-container"
-                                removeArrowOnDeviceType={["tablet", "mobile"]}
-                                deviceType={this.props.deviceType}
-                                dotListClass="custom-dot-list-style"
-                                itemClass="carousel-item-padding-40-px"
+                            <Swiper
+                                spaceBetween={50}
+                                slidesPerView={3}
+                                centeredSlides={true}
+                                grabCursor={true}
+                                loop={this.state.loop}
+                                onSwiper={(swiper) => console.log(swiper)}
+                                onSlideChange={() => this.setLoop()}
                             >
-                                <ItemProject title={'Безопасность и качество \n автомобильных  дорог'} backgroundImage='/img/project-1.png'/>
-                                <ItemProject title={'Цифровая \n экономика'} backgroundImage='/img/project-2.png'/>
-                                <ItemProject title={'Модернизация \n инфраструктуры'} backgroundImage='/img/project-3.png'/>
-                            </Carousel>
+                                <SwiperSlide onClick={()=>{this.setActive(0)}}>
+                                    <ItemProject title={'Безопасность и качество \n автомобильных  дорог'} backgroundImage='/img/project-1.png' isActive={this.state.active === 0} />
+                                </SwiperSlide>
+                                <SwiperSlide onClick={()=>{this.setActive(1)}}>
+                                    <ItemProject title={'Цифровая \n экономика'} backgroundImage='/img/project-2.png' isActive={this.state.active === 1} />
+                                </SwiperSlide >
+                                <SwiperSlide onClick={()=>{this.setActive(2)}}>
+                                    <ItemProject title={'Модернизация \n инфраструктуры'} backgroundImage='/img/project-3.png' isActive={this.state.active === 2} />
+                                </SwiperSlide>
+                            </Swiper>
                         </div>
                     </div>
                 </div>
@@ -79,3 +99,4 @@ export default class NationalProjectsPage extends Component {
         );
     }
 }
+export default withRouter(NationalProjectsPage)

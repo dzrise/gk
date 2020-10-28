@@ -3,15 +3,6 @@ import ReactDOM from 'react-dom';
 import Header from "../components/BkadGeography/Header";
 import Map from "../components/BkadGeography/page/Map";
 export default class BkadGeographyPage extends Component {
-    componentWillUnmount() {
-        document.removeEventListener('click', this.handleClickMap, false);
-    }
-    componentWillMount() {
-        document.addEventListener('click', this.handleClickMap, false);
-    }
-    handleClickMap(e) {
-        e.target.classList.add('active');
-    }
     render() {
         let pageStyle = {
             position: 'relative',

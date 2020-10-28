@@ -33,7 +33,7 @@ export default class ModalVideo extends Component {
             return (
                 <div style={styleModalVideo}>
                     <img src={close} alt="close video" onClick={this.props.onClose} style={styleModalVideoClose}/>
-                    <Player >
+                    <Player autoPlay>
                         <source src={this.props.url} />
                         <ControlBar autoHide={false} disableDefaultControls={true}>
                             <PlayToggle />
