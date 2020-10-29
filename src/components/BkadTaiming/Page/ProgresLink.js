@@ -4,7 +4,7 @@ export default class ProgresLink extends Component {
         let styleComp= {
             padding: '10px',
             borderRadius: '16px',
-            marginLeft: this.props.marginLeft
+            width: '20%'
         }
         return (
             <div style={styleComp}>

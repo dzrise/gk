@@ -5,19 +5,19 @@ export default class ButtonAll extends Component {
         let styleButtonProjects = {
             position:'absolute',
             right: 50,
-            bottom: 0,
+            bottom: 50,
             border: 'none',
-            background: 'url(/img/bg-button.png)',
-            backgroundRepeat: 'no-repeat',
+            borderRadius: 16,
+            background: 'linear-gradient(90deg, rgba(24,146,85,1) 0%, rgba(33,69,142,1) 100%)',
             fontFamily: 'Roboto',
             fontSize: 12,
             color: '#ffffff',
-            padding: '25px 40px 35px 30px',
+            padding: '15px 40px 15px 30px',
             cursor: 'pointer',
         }
         return (
             <button style={styleButtonProjects}>
-                Вся Россия
+                ГТЛК по всей России
             </button>
         );
     }

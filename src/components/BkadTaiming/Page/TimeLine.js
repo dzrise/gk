@@ -31,17 +31,17 @@ export default class TimeLine extends Component {
                         <div style={{display: 'flex', height: '100%'}}>
                             <div style={{width: '55%', height: '100%', display: 'flex', alignItems: 'center'}}>
                                 <ProgresLink/>
-                                <ProgresLink marginLeft='10%'/>
-                                <ProgresLink marginLeft='10%'/>
-                                <ProgresLink marginLeft='10%'/>
-                                <ProgresLink marginLeft='10%'/>
-                                <ProgresLink marginLeft='10%'/>
+                                <ProgresLink />
+                                <ProgresLink />
+                                <ProgresLink />
+                                <ProgresLink />
+                                <ProgresLink />
                             </div>
                             <div style={{width: '45%', display: 'flex', alignItems: 'center'}}>
-                                <ProgresLink/>
-                                <ProgresLink marginLeft='14.5%'/>
-                                <ProgresLink marginLeft='14.5%'/>
-                                <ProgresLink marginLeft='14.5%'/>
+                                <ProgresLink />
+                                <ProgresLink />
+                                <ProgresLink />
+                                <ProgresLink />
                             </div>
                         </div>
                     </div>

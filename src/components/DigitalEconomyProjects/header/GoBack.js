@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import close from '../../../assets/img/close.png'
+import close from '../../../assets/img/close-white.png'
 import {withRouter} from 'react-router-dom'
 
 class GoBack extends Component {

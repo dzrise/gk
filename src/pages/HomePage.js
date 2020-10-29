@@ -8,10 +8,6 @@ export default class HomePage extends Component {
         let pageStyle = {
             position: 'relative',
             height: '100%',
-            backgroundImage: 'url(/img/fonland.png)',
-            backgroundRepeat: 'no-repeat',
-            backgroundPosition: 'bottom center',
-            backgroundSize: '100% 100%',
         }
         return (
             <>

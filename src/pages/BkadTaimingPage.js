@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Header from "../components/BkadTaiming/Header";
 import TimeLine from "../components/BkadTaiming/Page/TimeLine";
 import DisplayInfo from "../components/BkadTaiming/Page/DisplayInfo";
+import DisplayInfoTop from "../components/BkadTaiming/Page/DisplayInfoTop";
 
 export default class BkadTaimingPage extends Component {
 
@@ -23,22 +24,23 @@ export default class BkadTaimingPage extends Component {
                             <div style={{width: '55%', color: '#666666',fontFamily: 'Roboto',fontSize: 13}}>ИТОГИ РЕАЛИЗАЦИИ</div>
                             <div style={{width: '45%', color: '#ffffff',fontFamily: 'Roboto',fontSize: 13}}>ПЛАНЫ НА 2020 - 2024 гг.</div>
                         </div>
-                        <div style={{display: 'flex', marginBottom: 30}}>
-                            <div style={{width: '55%', color: '#666666',fontFamily: 'Roboto',fontSize: 13}}></div>
+                        <div style={{position: 'relative', display: 'flex', marginBottom: 30}}>
+                            <div style={{width: '55%'}}></div>
                             <div style={{width: '45%', height: '100px', display: 'flex', }}>
-                                <div style={{width: "20%", borderLeft: '1px solid #666666', fontFamily: 'Roboto',color: '#666666',marginLeft: '20px'}}>
+                                <div style={{width: "20%",  height: '100%', padding: 10,borderLeft: '1px solid #666666', fontFamily: 'Roboto',color: '#666666',marginLeft: 16}}>
                                     2021
                                 </div>
-                                <div style={{width: "20%", height: '100%', borderLeft: '1px solid #666666', fontFamily: 'Roboto',color: '#666666'}}>
+                                <div style={{width: "20%", height: '100%', padding: 10,borderLeft: '1px solid #666666', fontFamily: 'Roboto',color: '#666666'}}>
                                     2022
                                 </div>
-                                <div style={{width: "20%",  height: '100%', borderLeft: '1px solid #666666', fontFamily: 'Roboto',  color: '#666666'}}>
+                                <div style={{width: "20%",  height: '100%', padding: 10,borderLeft: '1px solid #666666', fontFamily: 'Roboto',  color: '#666666'}}>
                                     2023
                                 </div>
-                                <div style={{width: "20%", height: '100%', borderLeft: '1px solid #666666', fontFamily: 'Roboto', color: '#666666'}}>
+                                <div style={{width: "20%", height: '100%', padding: 10,borderLeft: '1px solid #666666', fontFamily: 'Roboto', color: '#666666'}}>
                                     2024
                                 </div>
                             </div>
+                            <DisplayInfoTop />
                         </div>
                         <TimeLine />
                         <div style={{display: 'flex', marginBottom: 30}}>

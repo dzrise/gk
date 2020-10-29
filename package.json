@@ -24,6 +24,8 @@
     "react-touch-carousel": "^0.9.4",
     "swiper": "^6.3.4",
     "three": "^0.121.1",
+    "three-obj-mtl-loader": "^1.0.3",
+    "three-orbitcontrols": "^2.110.3",
     "video-react": "^0.14.1"
   },
   "scripts": {

@@ -52,13 +52,13 @@ export default class DigitalEconomyPage extends Component {
                     <Header/>
                     <div className='digital-economy__inner' style={styleInner}>
                         <div style={styleCol}>
-                            <DigitalCard left='0px' zIndex={this.state.zIndexOne}>
+                            <DigitalCard left='0px' zIndex={this.state.zIndexOne} onClick={()=>{this.setState({active: 1, zIndexOne: 3, zIndexTwo: 2, zIndexThree: 1})}}>
                                 <CardOne  display={this.state.active === 1 ? 'block' : 'none'}/>
                             </DigitalCard>
-                            <DigitalCard left='70px' zIndex={this.state.zIndexTwo}>
+                            <DigitalCard left='70px' zIndex={this.state.zIndexTwo} onClick={()=>{this.setState({active: 2, zIndexOne: 1, zIndexTwo: 3, zIndexThree: 2})}}>
                                 <CardTwo  display={this.state.active === 2 ? 'block' : 'none'}/>
                             </DigitalCard>
-                            <DigitalCard left='140px' zIndex={this.state.zIndexThree}>
+                            <DigitalCard left='140px' zIndex={this.state.zIndexThree} onClick={()=>{this.setState({active: 3, zIndexOne: 1, zIndexTwo: 2, zIndexThree: 3})}}>
                                 <CardThree  display={this.state.active === 3 ? 'block' : 'none'}/>
                             </DigitalCard>
                         </div>

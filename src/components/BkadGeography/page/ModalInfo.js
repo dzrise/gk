@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import close from "../../../assets/img/close.png";
+import close from "../../../assets/img/close-white.png";
 
 export default class ModalInfo extends Component {
     render() {
@@ -23,7 +23,7 @@ export default class ModalInfo extends Component {
             position: 'absolute',
             top: 15,
             right: 15,
-            color: '#e7e7e7',
+            color: '#B3B3B3',
             fontSize: 30,
             fontFamily: 'Arial'
         }
