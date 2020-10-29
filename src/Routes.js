@@ -9,6 +9,7 @@ import HistoryCompanyPage from "./pages/HistoryCompanyPage";
 import BkadTaimingPage from "./pages/BkadTaimingPage";
 import BkadPage from "./pages/BkadPage";
 import BkadGeographyPage from "./pages/BkadGeographyPage";
+import HomePageV2 from "./pages/HomePageV2";
 
 export default class Routes extends Component {
     render() {
@@ -21,6 +22,7 @@ export default class Routes extends Component {
                 <Route exact path='/digital-economy/projects' component={DigitalEconomyProjectsPage} />
                 <Route exact path='/digital-economy' component={DigitalEconomyPage} />
                 <Route exact path='/national-projects' component={NationalProjectsPage} />
+                <Route exact path='/home-v2' component={HomePageV2} />
                 <Route exact path='/' component={HomePage} />
                 <Route
                     render={function() {
