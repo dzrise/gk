@@ -25,6 +25,7 @@ class ButtonProjects extends Component {
             color: '#ffffff',
             padding: '25px 40px 35px 40px',
             cursor: 'pointer',
+            zIndex: 4,
         }
         return (
             <button style={styleButtonProjects} onClick={this.goLink}>

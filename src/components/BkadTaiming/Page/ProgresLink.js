@@ -4,11 +4,14 @@ export default class ProgresLink extends Component {
         let styleComp= {
             padding: '10px',
             borderRadius: '16px',
-            width: '20%'
+            width: '20%',
+            zIndex: 10,
         }
         return (
-            <div style={styleComp}>
-                <img src="/img/romb.png" />
+            <div style={styleComp} >
+                <div className={this.props.active ? 'progress-link active' : 'progress-link'} onClick={this.props.onClick}>
+                    <img src="/img/romb.png" />
+                </div>
             </div>
         );
     }

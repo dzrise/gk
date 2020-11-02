@@ -1,26 +1,43 @@
 import React, { Component } from 'react';
 import * as THREE from 'three';
-import { useShader, useProgram } from '@react-vertex/shader-hooks'
-import OrbitControls from "three-orbitcontrols";
+import Sky from 'three-sky';
+import OrbitControls from 'three-orbitcontrols';
 import HomeMenuLink from "./HomeMenuLink";
 
-import vert from 'vert.glsl'
-import frag from 'frag.glsl'
 import '../../assets/css/menu.css'
+/* eslint import/no-webpack-loader-syntax: off */
+import frag from '!raw-loader!./frag.frag';
+/* eslint import/no-webpack-loader-syntax: off */
+import vert from '!raw-loader!./vert.vert';
 
-const Sky = require('three-sky');
 export default class HomeMenuV2 extends Component {
-    constructor() {
-        super();
-        this.onInputMove = this.onInputMove.bind(this)
-        this.mouse = { x:0, y:0, xDamped:0, yDamped:0 };
+    constructor(props){
+        super(props);
+        this.state={
+        }
+        this.onInputMove = this.onInputMove.bind(this);
+        this.resize = this.resize.bind(this);
+        this.sky = this.sky.bind(this);
+        this.map = this.map.bind(this);
+        this.lerp = this.lerp.bind(this);
+        this.start = this.start.bind(this);
+        this.stop = this.stop.bind(this);
+        this.renderScene = this.renderScene.bind(this);
+        this.computeBoundingBox = this.computeBoundingBox.bind(this);
+        this.setupScene = this.setupScene.bind(this);
+        this.destroyContext = this.destroyContext.bind(this);
     }
 
+    componentDidMount(){
+        this.width = this.mount.clientWidth;
+        this.height = this.mount.clientHeight;
+        const isMobile = typeof window.orientation !== 'undefined'
+        this.mouse = { x:0, y:0, xDamped:0, yDamped:0 };
 
-    componentDidMount() {
-        const width = this.mount.clientWidth;
-        const height = this.mount.clientHeight;
-        const  isMobile = typeof window.orientation !== 'undefined'
+
+        this.setupScene()
+        this.computeBoundingBox()
+        this.start()
 
         if(isMobile)
             window.addEventListener("touchmove", this.onInputMove, {passive:false})
@@ -29,52 +46,45 @@ export default class HomeMenuV2 extends Component {
 
         window.addEventListener("resize", this.resize)
 
-        this.scene = new THREE.Scene();
-        this.fogColor = new THREE.Color( 0x333333 )
-        this.background = this.fogColor;
-        this.scene.fog = new THREE.Fog(this.fogColor, 0, 400);
+        this.resize()
 
-        this.sky = new Sky();
-        this.sky.scale.setScalar( 450000 );
-        this.sky.material.uniforms.turbidity.value = 13;
-        this.sky.material.uniforms.rayleigh.value = 1.2;
-        this.sky.material.uniforms.luminance.value = 1;
-        this.sky.material.uniforms.mieCoefficient.value = 0.1;
-        this.sky.material.uniforms.mieDirectionalG.value = 0.58;
+    }
 
-        this.scene.add( this.sky );
+    setupScene(){
 
-        this.sunSphere = new THREE.Mesh(
-            new THREE.SphereBufferGeometry( 20000, 16, 8 ),
-            new THREE.MeshBasicMaterial( { color: 0xffffff } )
-        );
-        this.sunSphere.visible = false;
-        this.scene.add( this.sunSphere );
+        let scene = new THREE.Scene();
+        this.scene = scene;
+        let fogColor = new THREE.Color( 0x414142 )
+        scene.background = fogColor;
+        scene.fog = new THREE.Fog(fogColor, 0, 400);
 
-        const theta = Math.PI * ( -0.002 );
-        const phi = 2 * Math.PI * ( -.25 );
+        this.sky();
 
-        this.sunSphere.position.x = 400000 * Math.cos( phi );
-        this.sunSphere.position.y = 400000 * Math.sin( phi ) * Math.sin( theta );
-        this.sunSphere.position.z = 400000 * Math.sin( phi ) * Math.cos( theta );
+        let camera = new THREE.PerspectiveCamera(60, this.width/this.height, 0.25, 1000);
+        camera.position.y = 8;
+        camera.position.z = 4;
 
-        this.sky.material.uniforms.sunPosition.value.copy( this.sunSphere.position );
+        let ambientLight = new THREE.AmbientLight(0xffffff, 1);
+        scene.add(ambientLight)
 
-        this.camera = new THREE.PerspectiveCamera(60, width / height, .1, 10000);
-        this.camera.position.y = 8;
-        this.camera.position.z = 4;
+        scene.add(camera);
 
-        this.ambientLight = new THREE.AmbientLight(0xffffff, 1);
-        this.scene.add(this.ambientLight)
+        const renderer = new THREE.WebGLRenderer( {
+            antialias:true
+        } );
+        this.mount.appendChild(renderer.domElement);
 
-        this.renderer = new THREE.WebGLRenderer({antialias: true});
-        this.renderer.setPixelRatio = devicePixelRatio;
-        this.renderer.setSize(width, height);
-        this.mount.appendChild(this.renderer.domElement)
+        renderer.setPixelRatio = devicePixelRatio;
+        renderer.setSize(this.width, this.height);
 
-        this.geometry = new THREE.PlaneBufferGeometry(100, 400, 400, 400);
+        this.renderer = renderer;
+        this.camera = camera;
+    }
 
-        this.uniforms = {
+    computeBoundingBox(){
+        const geometry = new THREE.PlaneBufferGeometry(100, 400, 400, 400);
+
+        const uniforms = {
             time: { type: "f", value: 0.0 },
             scroll: { type: "f", value: 0.0 },
             distortCenter: { type: "f", value: 0.1 },
@@ -85,60 +95,107 @@ export default class HomeMenuV2 extends Component {
             color:new THREE.Color(1, 1, 1)
         }
 
-         this.material = new THREE.ShaderMaterial({
-            uniforms: THREE.UniformsUtils.merge([ THREE.ShaderLib.basic.uniforms, this.uniforms ]),
+        const material = new THREE.ShaderMaterial({
+            uniforms: THREE.UniformsUtils.merge([ THREE.ShaderLib.basic.uniforms, uniforms ]),
             vertexShader: vert,
             fragmentShader: frag,
             wireframe:false,
             fog:true
         });
 
-        this.terrain = new THREE.Mesh(this.geometry, this.material);
-        this.terrain.position.z = -180;
-        this.terrain.rotation.x = -Math.PI / 2
+        const terrain = new THREE.Mesh(geometry, material);
+        terrain.position.z = -180;
+        terrain.rotation.x = -Math.PI / 2
+        this.terrain = terrain
 
         this.scene.add(this.terrain)
 
-        new THREE.TextureLoader().load( '/img/fonland.png', function(texture){
-            this.terrain.material.uniforms.pallete.value = texture;
-            this.terrain.material.needsUpdate = true;
+        const texture =  new THREE.TextureLoader().load( '/test/pallete5.png', function(texture){
+            terrain.material.uniforms.pallete.value = texture;
+            terrain.material.needsUpdate = true;
         });
-
-        const controls = new OrbitControls(this.camera, this.renderer.domElement);
-
-        this.resize();
-        this.renderScene();
-        this.start();
+        console.log( terrain.material.uniforms.pallete)
 
     }
-    componentWillUnmount() {
+
+
+    sky(){
+        const sky = new Sky();
+        sky.scale.setScalar( 450000 );
+        sky.material.uniforms.turbidity.value = 13;
+        sky.material.uniforms.rayleigh.value = 1.2;
+        sky.material.uniforms.luminance.value = 1;
+        sky.material.uniforms.mieCoefficient.value = 0.1;
+        sky.material.uniforms.mieDirectionalG.value = 0.58;
+
+        this.scene.add( sky );
+
+        const sunSphere = new THREE.Mesh(
+            new THREE.SphereBufferGeometry( 20000, 16, 8 ),
+            new THREE.MeshBasicMaterial( { color: 0xffffff } )
+        );
+
+        sunSphere.visible = false;
+        this.scene.add( sunSphere );
+
+        let theta = Math.PI * ( -0.002 );
+        let  phi = 2 * Math.PI * ( -.25 );
+
+        sunSphere.position.x = 400000 * Math.cos( phi );
+        sunSphere.position.y = 400000 * Math.sin( phi ) * Math.sin( theta );
+        sunSphere.position.z = 400000 * Math.sin( phi ) * Math.cos( theta );
+
+        sky.material.uniforms.sunPosition.value.copy( sunSphere.position );
+    }
+
+    map (value, start1, stop1, start2, stop2) {
+        return start2 + (stop2 - start2) * ((value - start1) / (stop1 - start1))
+    }
+
+    lerp (start, end, amt){
+        return (1 - amt) * start + amt * end
+    }
+
+    start() {
+        this.renderScene();
+    }
+
+    renderScene(){
+        requestAnimationFrame(this.render)
+
+        this.mouse.xDamped = this.lerp(this.mouse.xDamped, this.mouse.x, 0.1);
+        this.mouse.yDamped = this.lerp(this.mouse.yDamped, this.mouse.y, 0.1);
+
+
+        let time = performance.now() * 0.001
+        this.terrain.material.uniforms.time.value = time
+        this.terrain.material.uniforms.scroll.value = time + this.map(this.mouse.yDamped, 0, this.height, 0, 4);
+        this.terrain.material.uniforms.distortCenter.value = Math.sin(time) * 0.1;
+        this.terrain.material.uniforms.roadWidth.value = this.map(this.mouse.xDamped, 0, this.width, 1, 4.5);
+
+        this.camera.position.y = this.map(this.mouse.yDamped, 0, this.height, 4, 11);
+
+        this.renderer.render(this.scene, this.camera)
+    }
+
+    animate() {
+
+    }
+
+
+    stop() {
+
+    }
+
+    componentWillUnmount(){
         this.stop();
-        this.mount.removeChild(this.renderer.domElement);
+        this.destroyContext();
     }
 
+    destroyContext(){
 
-    start = () => {
-        if (!this.frameId) {
-            this.frameId = requestAnimationFrame(this.animate);
-        }
-    };
-    stop = () => {
-        cancelAnimationFrame(this.frameId);
-    };
-    animate = () => {
-        this.renderScene();
-        this.frameId = window.requestAnimationFrame(this.animate);
-    };
+    }
 
-    resize = () =>{
-        const width = this.mount.clientWidth;
-        const height = this.mount.clientHeight;
-        this.camera.aspect = width / height;
-        this.camera.updateProjectionMatrix();
-        this.renderer.setSize( width, height );
-    } ;
-
-    getRandomNumber = (min, max) => (Math.random() * (max - min) + min);
 
     onInputMove(e) {
         e.preventDefault();
@@ -158,10 +215,13 @@ export default class HomeMenuV2 extends Component {
 
     }
 
+    resize(){
+        this.camera.aspect = this.width/this.height;
+        this.camera.updateProjectionMatrix();
 
-    renderScene = () => {
-        if (this.renderer) this.renderer.render(this.scene, this.camera);
-    };
+        this.renderer.setSize( this.width, this.height );
+    }
+
 
     render() {
         let styleHomeMenu = {

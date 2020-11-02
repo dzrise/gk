@@ -3,9 +3,21 @@ import Header from "../components/BkadTaiming/Header";
 import TimeLine from "../components/BkadTaiming/Page/TimeLine";
 import DisplayInfo from "../components/BkadTaiming/Page/DisplayInfo";
 import DisplayInfoTop from "../components/BkadTaiming/Page/DisplayInfoTop";
+import NewYers from "../components/BkadTaiming/Page/NewYers";
 
 export default class BkadTaimingPage extends Component {
+    constructor() {
+        super();
+        this.state = {
+            active: 0,
+        }
+        this.activeThis = this.activeThis.bind(this)
+    }
 
+    activeThis(id) {
+       this.setState({'active': id})
+
+    }
     render() {
         let pageStyle = {
             position: 'relative',
@@ -27,30 +39,24 @@ export default class BkadTaimingPage extends Component {
                         <div style={{position: 'relative', display: 'flex', marginBottom: 30}}>
                             <div style={{width: '55%'}}></div>
                             <div style={{width: '45%', height: '100px', display: 'flex', }}>
-                                <div style={{width: "20%",  height: '100%', padding: 10,borderLeft: '1px solid #666666', fontFamily: 'Roboto',color: '#666666',marginLeft: 16}}>
+                                <NewYers marginLeft='20px' display={this.state.active === 7 ? 'none':'block' }>
                                     2021
-                                </div>
-                                <div style={{width: "20%", height: '100%', padding: 10,borderLeft: '1px solid #666666', fontFamily: 'Roboto',color: '#666666'}}>
+                                </NewYers>
+                                <NewYers display={this.state.active === 8 ? 'none':'block' }>
                                     2022
-                                </div>
-                                <div style={{width: "20%",  height: '100%', padding: 10,borderLeft: '1px solid #666666', fontFamily: 'Roboto',  color: '#666666'}}>
+                                </NewYers>
+                                <NewYers display={this.state.active === 9 ? 'none':'block' }>
                                     2023
-                                </div>
-                                <div style={{width: "20%", height: '100%', padding: 10,borderLeft: '1px solid #666666', fontFamily: 'Roboto', color: '#666666'}}>
+                                </NewYers>
+                                <NewYers display={this.state.active === 10 ? 'none':'block' }>
                                     2024
-                                </div>
+                                </NewYers>
                             </div>
-                            <DisplayInfoTop />
+                            <DisplayInfoTop active={this.state.active} />
                         </div>
-                        <TimeLine />
+                        <TimeLine active={this.state.active}  activeThis={(id) => {this.activeThis(id)}}/>
                         <div style={{display: 'flex', marginBottom: 30}}>
-                            <DisplayInfo marginLeft="55%">
-                                <div className='new-line'>Общий объем поставки техники</div>
-                                <div className='new-line'>в лизинг в 2020-2024 гг. в рамках</div>
-                                <div className='new-line'>БКАД на льготных условиях</div>
-                                <div className='new-line'>составит ~2 100 ед. на общую</div>
-                                <div className='new-line'>сумму более 33 млрд руб.</div>
-                            </DisplayInfo>
+                            <DisplayInfo active={this.state.active}/>
                         </div>
                     </div>
                 </div>

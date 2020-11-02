@@ -87,3 +87,16 @@ button.react-multiple-carousel__arrow {
 .tools .active {
   background: #fff;
 }
+.digital-economy canvas {
+  position: absolute;
+  top: 0;
+  z-index: 1;
+}
+.progress-link {
+  display: inline-block;
+  padding: 4px 6px;
+  border-radius: 100%;
+}
+.progress-link.active {
+  background:#ffffff;
+}
