@@ -6,6 +6,7 @@ export default class TextPartners extends Component {
             position: 'absolute',
             top: this.props.top,
             left: this.props.left,
+            display: this.props.styleDisplay
         }
         return (
             <div style={styleLogoPartners}>
