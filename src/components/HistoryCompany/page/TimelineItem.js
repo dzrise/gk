@@ -6,7 +6,7 @@ class TimelineItem extends Component {
         super();
         this.state = {
             isActive: false,
-            hidden : true
+            hidden : true,
         };
 
         this.handleClick = this.handleClick.bind(this);
@@ -53,6 +53,7 @@ class TimelineItem extends Component {
             backgroundImage: this.state.isActive ? 'url(/img/historyCompany/active.png)' : 'none',
             backgroundRepeat: 'no-repeat',
             zIndex: 1,
+            cursor:'pointer',
         }
         return this.state.hidden ? '':
             <div style={styleTimelineItem}>

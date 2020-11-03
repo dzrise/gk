@@ -18,7 +18,7 @@ export default class DigitalCard extends Component {
         }
         return (
             <div className='digital_card' style={styleDigitalCard} onClick={this.props.onClick}>
-                <img style={styleIcon} src="/img/arrow-white-down.png"/>
+                <img style={styleIcon} src={this.props.isActive ? '/img/arrow-white-min.png': '/img/arrow-white-down.png'}/>
                 {this.props.children}
             </div>
         );

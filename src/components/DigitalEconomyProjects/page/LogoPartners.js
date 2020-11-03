@@ -4,8 +4,8 @@ export default class LogoPartners extends Component {
     render() {
         let styleLogoPartners = {
             position: 'absolute',
-            top: this.props.top,
             left: this.props.left,
+            top: this.props.top
         }
         return (
             <div style={styleLogoPartners}>

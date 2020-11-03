@@ -181,13 +181,13 @@ export default class DigitalEconomyPage extends Component {
                     <Header/>
                     <div className='digital-economy__inner' style={styleInner}>
                         <div style={styleCol}>
-                            <DigitalCard left='0px' zIndex={this.state.zIndexOne} onClick={()=>{this.setState({active: 1, zIndexOne: 4, zIndexTwo: 3, zIndexThree: 2})}}>
+                            <DigitalCard isActive={this.state.active === 1}  left='0px' zIndex={this.state.zIndexOne} onClick={()=>{this.setState({active: 1, zIndexOne: 4, zIndexTwo: 3, zIndexThree: 2})}}>
                                 <CardOne  display={this.state.active === 1 ? 'block' : 'none'}/>
                             </DigitalCard>
-                            <DigitalCard left='70px' zIndex={this.state.zIndexTwo} onClick={()=>{this.setState({active: 2, zIndexOne: 2, zIndexTwo: 4, zIndexThree: 3})}}>
+                            <DigitalCard isActive={this.state.active === 2} left='70px' zIndex={this.state.zIndexTwo} onClick={()=>{this.setState({active: 2, zIndexOne: 2, zIndexTwo: 4, zIndexThree: 3})}}>
                                 <CardTwo  display={this.state.active === 2 ? 'block' : 'none'}/>
                             </DigitalCard>
-                            <DigitalCard left='140px' zIndex={this.state.zIndexThree} onClick={()=>{this.setState({active: 3, zIndexOne: 2, zIndexTwo: 3, zIndexThree: 4})}}>
+                            <DigitalCard  isActive={this.state.active === 3} left='140px' zIndex={this.state.zIndexThree} onClick={()=>{this.setState({active: 3, zIndexOne: 2, zIndexTwo: 3, zIndexThree: 4})}}>
                                 <CardThree  display={this.state.active === 3 ? 'block' : 'none'}/>
                             </DigitalCard>
                         </div>
