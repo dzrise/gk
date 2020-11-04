@@ -8,7 +8,7 @@ export default class Logo extends Component {
         }
         return (
             <div className='header__Logo' style={styleLogo}>
-                <img src={logo} alt=""/>
+                <img src={logo} alt="logo" />
             </div>
         );
     }

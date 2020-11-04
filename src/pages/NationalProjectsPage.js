@@ -16,6 +16,7 @@ class NationalProjectsPage extends Component {
             loop: false,
             showCard: true,
             active: '',
+            left: '15.66%',
         }
 
         this.setLoop = this.setLoop.bind(this)
@@ -27,6 +28,7 @@ class NationalProjectsPage extends Component {
         }
         if(this.state.showCard === true){
             this.setState({showCard: false})
+            this.setState({left: '3.66%'})
         }
     }
     setActive(id){
@@ -58,12 +60,14 @@ class NationalProjectsPage extends Component {
             backgroundSize: '100% 100%',
         }
         let styleInner = {
-            padding: '100px 50px 0 50px'
+            padding: '100px 50px 0 50px',
+            width: '100%',
+            height: '100%',
         }
         let styleCarousel = {
             position: 'absolute',
             top: 130,
-            left: '3.66%',
+            left: this.state.left,
             width: '100%',
         }
         return (
@@ -74,7 +78,7 @@ class NationalProjectsPage extends Component {
                         <Card showCard={this.state.showCard}/>
                         <div style={styleCarousel}>
                             <Swiper
-                                spaceBetween={50}
+                                spaceBetween={0}
                                 slidesPerView={3}
                                 centeredSlides={true}
                                 grabCursor={true}

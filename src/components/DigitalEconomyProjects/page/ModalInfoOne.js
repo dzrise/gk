@@ -1,25 +1,23 @@
 import React, { Component } from 'react';
-import close from "../../../assets/img/close-white.png";
+import PropTypes from 'prop-types'
 
 export default class ModalInfoOne extends Component {
     constructor(props) {
         super(props);
-        this.myRef = React.createRef();
-
-    }
-    componentWillUnmount() {
-        document.removeEventListener('click', this.handleClickOutside, false);
+        this.setWrapperRef = this.setWrapperRef.bind(this);
+        this.handleClickOutside = this.handleClickOutside.bind(this);
     }
 
-
-    componentDidMount() {
-        document.addEventListener('click', this.handleClickOutside, false);
+    setWrapperRef(node) {
+        this.wrapperRef = node;
     }
 
+    handleClickOutside(event) {
+        if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
 
-    handleClickOutside(e) {
-       console.log(e)
+        }
     }
+
     render() {
         let pageStyle = {
             position: 'absolute',
@@ -52,8 +50,10 @@ export default class ModalInfoOne extends Component {
         }
         if(this.props.isOpen) {
             return (
-                <div ref={this.myRef} style={pageStyle}>
-                    {this.props.children}
+                <div ref={this.setWrapperRef} style={{width: '100%', height: '100%',zIndex: 8990,}} onClick={()=>{this.props.closeModal()}}>
+                    <div style={pageStyle}>
+                        {this.props.children}
+                    </div>
                 </div>
             );
         } else {
@@ -61,3 +61,7 @@ export default class ModalInfoOne extends Component {
         }
     }
 }
+
+ModalInfoOne.propTypes = {
+    children: PropTypes.element.isRequired,
+};

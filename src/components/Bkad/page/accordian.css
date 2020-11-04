@@ -5,12 +5,18 @@
 .accordian>div.slide {
     position: relative;
     overflow: hidden;
-    width: 15%;
+    width: 17.5%;
     height:  70vh;
     cursor: pointer;
     box-sizing: border-box;
     box-shadow: 0 5px 10px black;
     background-color: #ffffff;
+}
+.accordian>div.slide.slide-one {
+    width: 5%;
+}
+.accordian>div.slide.slide-one.active {
+    width: 55%;
 }
 .accordian>div.slide.active {
     width: 55%;

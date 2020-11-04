@@ -13,34 +13,34 @@ export default class TimeLine extends Component {
     setProgress(id) {
         switch (id){
             case 1:
-                this.state.progressWidth =  '100%'
+                this.setState({progressWidth: '100%'})
                 break;
             case 2:
-                this.state.progressWidth =  '91%'
+                this.setState({progressWidth: '91%'})
                 break;
             case 3:
-                this.state.progressWidth =  '82%'
+                this.setState({progressWidth: '82%'})
                 break;
             case 4:
-                this.state.progressWidth =  '73%'
+                this.setState({progressWidth: '73%'})
                 break;
             case 5:
-                this.state.progressWidth =  '64%'
+                this.setState({progressWidth: '64%'})
                 break;
             case 6:
-                this.state.progressWidth =  '55%'
+                this.setState({progressWidth: '55%'})
                 break;
             case 7:
-                this.state.progressWidth =  '45.5%'
+                this.setState({progressWidth: '45.5%'})
                 break;
             case 8:
-                this.state.progressWidth =  '35%'
+                this.setState({progressWidth: '35%'})
                 break;
             case 9:
-                this.state.progressWidth =  '24.5%'
+                this.setState({progressWidth: '24.5%'})
                 break;
             case 10:
-                this.state.progressWidth =  '14%'
+                this.setState({progressWidth: '14%'})
                 break;
         }
     }
