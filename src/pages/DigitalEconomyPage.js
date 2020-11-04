@@ -28,7 +28,7 @@ export default class DigitalEconomyPage extends Component {
             backgroundSize: '100% 100%',
         }
         let styleInner = {
-            padding: '125px 50px 0 50px',
+            padding: '12% 50px 0 100px',
             display: 'flex',
         }
         let styleCol = {

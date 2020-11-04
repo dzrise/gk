@@ -59,6 +59,7 @@ export default class Header extends Component {
     render() {
         let styleSvg = {
             width: '80%',
+            maxHeight: '85.5vh',
             display: 'block',
             margin: '0 auto',
         }

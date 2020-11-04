@@ -10,15 +10,15 @@ export default class RightCardTwo extends Component {
             fontSize: 20,
             lineHeight: 1.5,
             color: '#ffffff',
-            textAlign:'center',
-            marginBottom: 50,
+            textAlign:'left',
+            marginBottom: 20,
         }
         let styleList = {
             fontFamily: 'Roboto',
             fontSize: 16,
             lineHeight: 1.5,
             color: '#ffffff',
-            marginBottom: 30,
+            marginBottom: 20,
             paddingLeft: 28,
             backgroundImage: 'url('+list+')',
             backgroundRepeat: 'no-repeat',
@@ -26,7 +26,9 @@ export default class RightCardTwo extends Component {
         }
         return (
             <div style={styleCard}>
-                <h2 style={styleTitle}>НАЦИОНАЛЬНАЯ ПРОГРАММА{'\n'} «ЦИФРОВАЯ экономика Российской Федерации»</h2>
+                <h2 style={styleTitle}>
+                    <div className='new-line'>НАЦИОНАЛЬНАЯ ПРОГРАММА</div>
+                    <div className='new-line'>«ЦИФРОВАЯ экономика Российской Федерации»</div></h2>
                 <ul>
                     <li style={styleList}>ГТЛК планирует выполнять институциональную роль в реализации национальной программы: организовывать работу по отбору и подготовке проектов, представляющих интерес как для Компании, так и для транспортной отрасли в целом</li>
                     <li style={styleList}>ГТЛК призвана стимулировать инновационное развитие компаний, выступая в качестве инструмента для реализации программ инновационного развития.</li>

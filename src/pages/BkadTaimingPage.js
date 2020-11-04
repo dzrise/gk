@@ -32,30 +32,32 @@ export default class BkadTaimingPage extends Component {
                 <Header/>
                 <div style={{padding: '100px 50px 0 50px',display: 'flex', alignItems: 'center', height: '100%'}}>
                     <div style={{width: '100%'}}>
-                        <div style={{display: 'flex', marginBottom: 30}}>
-                            <div style={{width: '55%', color: '#666666',fontFamily: 'Roboto',fontSize: 13}}>ИТОГИ РЕАЛИЗАЦИИ</div>
-                            <div style={{width: '45%', color: '#ffffff',fontFamily: 'Roboto',fontSize: 13}}>ПЛАНЫ НА 2020 - 2024 гг.</div>
-                        </div>
-                        <div style={{position: 'relative', display: 'flex', marginBottom: 30}}>
-                            <div style={{width: '55%'}}></div>
-                            <div style={{width: '45%', height: '100px', display: 'flex', }}>
-                                <NewYers marginLeft='20px' display={this.state.active === 7 ? 'none':'block' }>
-                                    2021
-                                </NewYers>
-                                <NewYers display={this.state.active === 8 ? 'none':'block' }>
-                                    2022
-                                </NewYers>
-                                <NewYers display={this.state.active === 9 ? 'none':'block' }>
-                                    2023
-                                </NewYers>
-                                <NewYers display={this.state.active === 10 ? 'none':'block' }>
-                                    2024
-                                </NewYers>
+                        <div style={{height: '30vh'}}>
+                            <div style={{display: 'flex', marginBottom: 30, paddingTop: 100}}>
+                                <div style={{width: '55%', color: '#666666',fontFamily: 'Roboto',fontSize: 13}}>ИТОГИ РЕАЛИЗАЦИИ</div>
+                                <div style={{width: '45%', color: '#ffffff',fontFamily: 'Roboto',fontSize: 13}}>ПЛАНЫ НА 2020 - 2024 гг.</div>
                             </div>
-                            <DisplayInfoTop active={this.state.active} />
+                            <div style={{position: 'relative', display: 'flex', marginBottom: 30}}>
+                                <div style={{width: '55%'}}></div>
+                                <div style={{width: '45%', height: '100px', display: 'flex', }}>
+                                    <NewYers marginLeft='10px' display={this.state.active === 7 ? 'none':'block' }>
+                                        2021
+                                    </NewYers>
+                                    <NewYers display={this.state.active === 8 ? 'none':'block' }>
+                                        2022
+                                    </NewYers>
+                                    <NewYers display={this.state.active === 9 ? 'none':'block' }>
+                                        2023
+                                    </NewYers>
+                                    <NewYers display={this.state.active === 10 ? 'none':'block' }>
+                                        2024
+                                    </NewYers>
+                                </div>
+                                <DisplayInfoTop active={this.state.active} />
+                            </div>
                         </div>
                         <TimeLine active={this.state.active}  activeThis={(id) => {this.activeThis(id)}}/>
-                        <div style={{display: 'flex', marginBottom: 30}}>
+                        <div style={{display: 'flex', marginBottom: 30,height: '40vh'}}>
                             <DisplayInfo active={this.state.active}/>
                         </div>
                     </div>

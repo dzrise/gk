@@ -3,7 +3,6 @@ export default class CardTwo extends Component {
     render() {
         let styleCard = {
             color: '#ffffff',
-            paddingRight: 50,
             display: this.props.display
         }
         return (

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 export default class RightCard extends Component {
     render() {
         let styleRightCard = {
-            padding: '30px 0 0 50px',
+            padding: '0 0 0 30px',
             display: this.props.display
         }
         return (

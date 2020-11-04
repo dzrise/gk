@@ -40,7 +40,7 @@ export default class TimeLine extends Component {
                 this.setState({progressWidth: '24.5%'})
                 break;
             case 10:
-                this.setState({progressWidth: '14%'})
+                this.setState({progressWidth: '14.5%'})
                 break;
         }
     }

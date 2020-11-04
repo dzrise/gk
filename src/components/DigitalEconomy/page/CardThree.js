@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 export default class CardThree extends Component {
     render() {
         let styleCard = {
-            paddingRight: 50,
             display: this.props.display
         }
         let styleInt = {

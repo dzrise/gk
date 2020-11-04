@@ -4,8 +4,8 @@ export default class DigitalCard extends Component {
         let styleDigitalCard = {
             position: 'absolute',
             left: this.props.left,
-            width: '374px',
-            height: '374px',
+            width: '345px',
+            height: '345px',
             background: 'linear-gradient(45deg, rgba(24,145,85,1) 0%, rgba(33,69,142,1) 100%)',
             boxShadow: '10px 10px 25px 0px rgba(0,0,0,0.75)',
             zIndex: this.props.zIndex,
